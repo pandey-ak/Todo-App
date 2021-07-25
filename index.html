@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Lobster&family=Pattaya&family=Righteous&display=swap" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+        <title>Todo App</title>
+        <style>
+            .Heading{
+                margin-top: 40px;
+                text-align: center;
+                font-size: 50px;
+                font-family: 'Righteous', cursive;
+                color:violet;
+                text-decoration:underline;
+                /*display:inline-block;
+                position: absolute;
+                right:30px;
+                top:30px;*/
+            }
+            .main{
+                font-size:30px;
+                color:darkturquoise;
+                text-decoration: underline;
+            }
+            .form{
+                margin-top: 80px;
+                text-align: center;
+            }
+            #input{
+                height:50px;
+                width:400px;
+                border-color: aqua;
+                border-width: 5px;
+                border-radius: 10px;
+            }
+            .label{
+                margin-right: 270px;
+                font-size: 30px;
+                font-family: 'Ramabhadra', sans-serif;
+                color:darkslateblue;
+            }
+            .button1{
+                height:40px;
+                width:200px;
+                background-color:lightskyblue;
+                border-radius:10px;
+                color:black;
+                font-size: 30px;
+            }
+            .ul{
+                padding-left: 10%;
+                padding: 7%;
+                text-align: left;
+                font-size:50px;
+                list-style: disc;
+            }
+            li{
+                font-size:20px;
+                color:green;
+                font-family: 'Libre Baskerville', serif;
+            }
+            .button2{
+                height:40px;
+                width:100px;
+                background-color:yellow;
+                border-radius:10px;
+                color:black;
+                font-size: 20px;
+            }
+           /* li:hover{
+                color:red;
+                margin: 5%;
+                transition: 1.5s ease;
+                cursor:pointer;*/
+            }
+        </style>
+    </head>
+    <body>
+        <h1 class="main">NAMASTE</h1>
+        <h1 class="Heading">TODO-APP</h1>
+        <form class="form">
+            <p class="label">Enter here:</p>
+            <input id="input" type="text" placeholder="to-do item" ><br><br>
+            <button type="button" class="button1" onclick="add()">Add</button>
+            <button type="button" onclick="del()" class="button2">Remove</button>
+        </form>
+        <div class="Container">
+            <ul id="ul"></ul>
+</div>
+<script>
+function add(){
+    var list=document.createElement("li");
+    var item=document.getElementById("input").value;
+    var node=document.createTextNode(item);
+    list.appendChild(node);
+    if(item=== ''){
+        alert("Please write Something ");
+    }
+    else{
+        var existElement=document.getElementById("ul");
+        existElement.appendChild(list);
+    }
+}
+function del(){
+    var parent=document.getElementById("ul");
+    var child=document.getElementsByTagName("li");
+    var len=child.length;
+    var todelete=child[len-1];
+    parent.removeChild(todelete);
+}       
+</script>
+    </body>
+</html>
